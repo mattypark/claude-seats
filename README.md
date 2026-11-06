@@ -1,19 +1,49 @@
 # claude-seats
 
-Six Claude Code sessions in one terminal, talking to each other while they build your app. This is the exact setup I used to build [Nudgy](https://nudgy.run) in two weeks, written down so one command gives you the same thing.
+Six Claude Code sessions in one terminal, talking to each other while they build your app. This is the exact setup I used to build [Nudgy](https://nudgy.run) in two weeks, written down so you get the same thing in three steps.
+
+## Start here
+
+### Step 1. Install everything (one command)
 
 ```sh
-git clone https://github.com/mattypark/claude-seats.git ~/claude-seats
-~/claude-seats/setup.sh
+git clone https://github.com/mattypark/claude-seats.git ~/claude-seats && ~/claude-seats/setup.sh
 ```
 
-Then, in your project folder:
+Installs tmux, bun, node, Claude Code, the room server (`claude-multiplayer`) and the `seats` command. Safe to run twice. Sign in to Claude Code once if you haven't (`claude`, then follow the prompt).
+
+Prefer to let Claude do it? Open any Claude Code session and paste this:
+
+```text
+Set up claude-seats on this Mac. Clone https://github.com/mattypark/claude-seats.git to ~/claude-seats and run
+~/claude-seats/setup.sh, showing me each step's result. If a step fails, fix it (Homebrew missing, PATH not set,
+Claude Code older than 2.1.80) and run the script again. When it ends, confirm with `claude mcp list` that
+claude-multiplayer is registered and `which seats` finds the command. Then tell me, in three lines, how to start
+my first six seats.
+```
+
+### Step 2. Start a Claude Code session that can talk to the others
+
+This is the command. Every seat runs it, in its own terminal pane, inside your project folder:
 
 ```sh
+claude --dangerously-skip-permissions --dangerously-load-development-channels server:claude-multiplayer
+```
+
+`--dangerously-load-development-channels server:claude-multiplayer` puts the session on the room, so it can post to and read from the other seats. `--dangerously-skip-permissions` is how I run mine (no permission prompts while six seats build); drop it if you want to approve each step.
+
+`seats up <project>` runs that command for you, six times, in a 3×2 tmux grid:
+
+```sh
+cd ~/code/my-app
 seats up .
 ```
 
-That opens a tmux window split 3×2, a Claude Code session in each box, all six in the same chat room.
+### Step 3. Talk, then paste
+
+Dictate for 5 to 10 minutes about the app (I use [Wispr Flow](https://wisprflow.ai)). Paste `prompts/00-yap-to-six.md` into one seat with the transcript under it. It answers with six prompts. Paste one into each seat, in plan mode. Let them run.
+
+---
 
 ## What you get
 
@@ -23,9 +53,9 @@ That opens a tmux window split 3×2, a Claude Code session in each box, all six 
 - **The loop.** Each seat tests its own work, reads the app's own log, writes a handoff and its own next prompt. You come back to a folder of copy-paste prompts, not a chat you have to scroll.
 - **Safe commits with six writers.** `scripts/private-commit.sh` commits a seat's files onto `main` through a private index and refuses when someone else changed the same file since. No merges, no stepping on each other.
 
-## Install, step by step
+## What setup.sh does
 
-`setup.sh` does all of this; this is what it does.
+In order, each step skipped when it's already there.
 
 1. Homebrew if missing, then `tmux`, `bun`, `node`.
 2. Claude Code: `npm install -g @anthropic-ai/claude-code`.
@@ -39,7 +69,7 @@ That opens a tmux window split 3×2, a Claude Code session in each box, all six 
 
 You need a Claude plan that lets you run several sessions at once. I run the Max plan.
 
-## The workflow
+## The workflow, in more detail
 
 ### 1. Start the seats
 
@@ -48,7 +78,7 @@ cd ~/code/my-app
 seats up .
 ```
 
-Idempotent: if the session exists it attaches instead of making a new one, so you never lose a running seat. Models per seat live in `seats.conf` (copied into your project the first time). Change a line, run `seats up .` again.
+Each pane runs the step 2 command with its own model and effort (`--model`, `--effort`). If the session exists it attaches instead of making a new one, so you never lose a running seat. Models per seat live in `seats.conf` (`seats conf .` copies the example in). Change a line, run `seats up .` again. `SEATS_SAFE=1 seats up .` keeps the permission prompts on.
 
 ### 2. Yap
 

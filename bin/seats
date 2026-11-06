@@ -30,9 +30,9 @@ load_conf() {
 
 claude_cmd() {
   local model="$1" effort="$2"
-  local flags="--model $model --effort $effort --dangerously-load-development-channels server:claude-multiplayer"
-  # SEATS_YOLO=1 skips the permission prompts, the way I run mine. Off by default for a fresh install.
-  [[ "${SEATS_YOLO:-0}" == 1 ]] && flags="$flags --dangerously-skip-permissions"
+  # The command every seat runs (README step 2), plus its model and effort. SEATS_SAFE=1 keeps the permission prompts on.
+  local flags="--dangerously-load-development-channels server:claude-multiplayer --model $model --effort $effort"
+  [[ "${SEATS_SAFE:-0}" == 1 ]] || flags="--dangerously-skip-permissions $flags"
   echo "claude $flags"
 }
 
