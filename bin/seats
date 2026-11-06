@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+# seats: six Claude Code sessions in one tmux window, 3×2, all in the same room.
+#
+#   seats up <project-dir> [session-name]   start (or attach to) the seats for a project
+#   seats attach [session-name]             attach to a running session
+#   seats conf <project-dir>                copy seats.conf.example into the project to edit
+#
+# Idempotent on purpose: a session that exists is attached, never rebuilt. Killing a tmux session kills six running
+# Claude Code sessions, so this script never does.
+set -euo pipefail
+
+HERE="$(cd "$(dirname "$(readlink "$0" || echo "$0")")/.." && pwd)"
+CMD="${1:-}"; shift || true
+
+load_conf() {
+  local dir="$1"
+  SEAT_MODELS=(opus sonnet opus sonnet opus sonnet)
+  SEAT_EFFORT=(high high high high high high)
+  SEAT_NAMES=("1 backend" "2 frontend" "3 services" "4 looks" "5 data" "6 desktop + site")
+  local conf="$dir/seats.conf"
+  [[ -f "$conf" ]] || return 0
+  # seats.conf lines: <seat> <model> <effort> <name words...>
+  while read -r n model effort name; do
+    [[ -z "${n:-}" || "$n" == \#* ]] && continue
+    SEAT_MODELS[$((n-1))]="$model"
+    SEAT_EFFORT[$((n-1))]="$effort"
+    SEAT_NAMES[$((n-1))]="$n $name"
+  done < "$conf"
+}
+
+claude_cmd() {
+  local model="$1" effort="$2"
+  local flags="--model $model --effort $effort --dangerously-load-development-channels server:claude-multiplayer"
+  # SEATS_YOLO=1 skips the permission prompts, the way I run mine. Off by default for a fresh install.
+  [[ "${SEATS_YOLO:-0}" == 1 ]] && flags="$flags --dangerously-skip-permissions"
+  echo "claude $flags"
+}
+
+up() {
+  local dir="${1:?seats up <project-dir> [session-name]}"
+  dir="$(cd "$dir" && pwd)"
+  local name="${2:-$(basename "$dir")}"
+  load_conf "$dir"
+  if tmux has-session -t "$name" 2>/dev/null; then
+    echo "session '$name' is already up: attaching (nothing restarted)"
+    exec tmux attach -t "$name"
+  fi
+  # Six panes: a 3×2 grid, each one cd'd into the project and running its seat.
+  tmux new-session -d -s "$name" -c "$dir" -x 300 -y 90
+  tmux rename-window -t "$name:1" seats
+  for i in 1 2 3 4 5; do tmux split-window -t "$name:seats" -c "$dir"; tmux select-layout -t "$name:seats" tiled; done
+  tmux select-layout -t "$name:seats" tiled
+  for i in 0 1 2 3 4 5; do
+    local pane=$((i + 1))
+    tmux select-pane -t "$name:seats.$pane" -T "seat ${SEAT_NAMES[$i]}"
+    tmux send-keys -t "$name:seats.$pane" "clear; echo 'seat ${SEAT_NAMES[$i]} · ${SEAT_MODELS[$i]} ${SEAT_EFFORT[$i]}'; $(claude_cmd "${SEAT_MODELS[$i]}" "${SEAT_EFFORT[$i]}")" C-m
+  done
+  tmux set -t "$name" pane-border-status top
+  tmux set -t "$name" pane-border-format " #{pane_title} "
+  exec tmux attach -t "$name"
+}
+
+case "$CMD" in
+  up) up "$@" ;;
+  attach) exec tmux attach -t "${1:-$(basename "$PWD")}" ;;
+  conf)
+    dir="${1:?seats conf <project-dir>}"
+    if [[ -f "$dir/seats.conf" ]]; then echo "$dir/seats.conf exists; edit it"; else cp "$HERE/seats.conf.example" "$dir/seats.conf"; echo "wrote $dir/seats.conf"; fi ;;
+  *) sed -n '2,8p' "$0"; exit 1 ;;
+esac

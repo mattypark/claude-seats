@@ -1,0 +1,9 @@
+# One line per seat: <seat> <model> <effort> <lane words>
+# Models: opus · sonnet · haiku (or a full id like claude-opus-5-5). Effort: low · medium · high.
+# This is the split I ran for Nudgy. Change the lanes to fit your app; the yap prompt writes them for you.
+1 opus high backend (server, data, pushes)
+2 sonnet high frontend (screens, copy, builds)
+3 opus high services (background work, state, lifetimes)
+4 sonnet high looks (components, cards, boards)
+5 opus high sensing (location, audio, the hard signals)
+6 sonnet high desktop + site
