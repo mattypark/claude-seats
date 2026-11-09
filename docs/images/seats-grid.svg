@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+<defs><style>.t{fill:#e6e6e6;font-size:15px}.d{fill:#8b8f98;font-size:13px}.c{fill:#8b8f98;font-size:12px}.g{fill:#7ee787}.b{fill:#79c0ff}.y{fill:#e3b341}.p{fill:#d2a8ff}</style></defs>
+<rect width="1200" height="720" rx="18" fill="#0d1117"/>
+<circle cx="28" cy="26" r="7" fill="#ff5f57"/><circle cx="50" cy="26" r="7" fill="#febc2e"/><circle cx="72" cy="26" r="7" fill="#28c840"/>
+<text x="600" y="31" text-anchor="middle" class="d">tmux · dev · six Claude Code seats · one room</text>
+<rect x="24" y="52" width="375" height="309" rx="10" fill="#161b22" stroke="#30363d"/>
+<text x="40" y="82" class="t"><tspan class="g">●</tspan> seat 1 · backend</text>
+<text x="383" y="82" text-anchor="end" class="d">opus · high</text>
+<text x="40" y="118" class="c">$ claude --model opus --effort high \</text>
+<text x="40" y="138" class="c">  --dangerously-load-development-channels \</text>
+<text x="40" y="156" class="c">  server:claude-multiplayer</text>
+<text x="40" y="190" class="t"><tspan class="b">#room</tspan>  joined · 6 peers</text>
+<text x="40" y="210" class="t"><tspan class="p">CONTRACT</tspan> @4: /v1/cards answers</text>
+<text x="40" y="232" class="t">  {title, rows[], picture?}</text>
+<text x="40" y="254" class="t"><tspan class="g">DONE</tspan> 3f1a2c9 deploy 12</text>
+<text x="40" y="339" class="d">plan mode → yes → building…  <tspan class="g">█</tspan></text>
+<rect x="413" y="52" width="375" height="309" rx="10" fill="#161b22" stroke="#30363d"/>
+<text x="429" y="82" class="t"><tspan class="g">●</tspan> seat 2 · frontend</text>
+<text x="771" y="82" text-anchor="end" class="d">sonnet · high</text>
+<text x="429" y="118" class="c">$ claude --model opus --effort high \</text>
+<text x="429" y="138" class="c">  --dangerously-load-development-channels \</text>
+<text x="429" y="156" class="c">  server:claude-multiplayer</text>
+<text x="429" y="190" class="t"><tspan class="b">#room</tspan>  joined · 6 peers</text>
+<text x="429" y="210" class="t"><tspan class="y">ASK</tspan> @1: does /v1/plan carry</text>
+<text x="429" y="232" class="t">  the trial days?</text>
+<text x="429" y="254" class="t"><tspan class="g">DONE</tspan> b71e04d onboarding</text>
+<text x="429" y="339" class="d">plan mode → yes → building…  <tspan class="g">█</tspan></text>
+<rect x="801" y="52" width="375" height="309" rx="10" fill="#161b22" stroke="#30363d"/>
+<text x="817" y="82" class="t"><tspan class="g">●</tspan> seat 3 · services</text>
+<text x="1160" y="82" text-anchor="end" class="d">opus · high</text>
+<text x="817" y="118" class="c">$ claude --model opus --effort high \</text>
+<text x="817" y="138" class="c">  --dangerously-load-development-channels \</text>
+<text x="817" y="156" class="c">  server:claude-multiplayer</text>
+<text x="817" y="190" class="t"><tspan class="b">#room</tspan>  joined · 6 peers</text>
+<text x="817" y="210" class="t"><tspan class="t">FYI:</tspan> live card state is</text>
+<text x="817" y="232" class="t">  optional fields only</text>
+<text x="817" y="254" class="t"><tspan class="g">DONE</tspan> 84ac784 push handler</text>
+<text x="817" y="339" class="d">plan mode → yes → building…  <tspan class="g">█</tspan></text>
+<rect x="24" y="375" width="375" height="309" rx="10" fill="#161b22" stroke="#30363d"/>
+<text x="40" y="405" class="t"><tspan class="g">●</tspan> seat 4 · looks</text>
+<text x="383" y="405" text-anchor="end" class="d">sonnet · high</text>
+<text x="40" y="441" class="c">$ claude --model opus --effort high \</text>
+<text x="40" y="461" class="c">  --dangerously-load-development-channels \</text>
+<text x="40" y="479" class="c">  server:claude-multiplayer</text>
+<text x="40" y="513" class="t"><tspan class="b">#room</tspan>  joined · 6 peers</text>
+<text x="40" y="533" class="t"><tspan class="g">DONE</tspan> a0c3e5f card ≤160 pt,</text>
+<text x="40" y="555" class="t">  board in build/screenshots</text>
+<text x="40" y="577" class="t"><tspan class="y">ASK</tspan> @3: picture key name?</text>
+<text x="40" y="662" class="d">plan mode → yes → building…  <tspan class="g">█</tspan></text>
+<rect x="413" y="375" width="375" height="309" rx="10" fill="#161b22" stroke="#30363d"/>
+<text x="429" y="405" class="t"><tspan class="g">●</tspan> seat 5 · sensing</text>
+<text x="771" y="405" text-anchor="end" class="d">opus · high</text>
+<text x="429" y="441" class="c">$ claude --model opus --effort high \</text>
+<text x="429" y="461" class="c">  --dangerously-load-development-channels \</text>
+<text x="429" y="479" class="c">  server:claude-multiplayer</text>
+<text x="429" y="513" class="t"><tspan class="b">#room</tspan>  joined · 6 peers</text>
+<text x="429" y="533" class="t"><tspan class="t">FYI:</tspan> location wakes every</text>
+<text x="429" y="555" class="t">  5 min, mic stays free</text>
+<text x="429" y="577" class="t"><tspan class="g">DONE</tspan> 9d2b7a1 walk detect</text>
+<text x="429" y="662" class="d">plan mode → yes → building…  <tspan class="g">█</tspan></text>
+<rect x="801" y="375" width="375" height="309" rx="10" fill="#161b22" stroke="#30363d"/>
+<text x="817" y="405" class="t"><tspan class="g">●</tspan> seat 6 · desktop + site</text>
+<text x="1160" y="405" text-anchor="end" class="d">sonnet · high</text>
+<text x="817" y="441" class="c">$ claude --model opus --effort high \</text>
+<text x="817" y="461" class="c">  --dangerously-load-development-channels \</text>
+<text x="817" y="479" class="c">  server:claude-multiplayer</text>
+<text x="817" y="513" class="t"><tspan class="b">#room</tspan>  joined · 6 peers</text>
+<text x="817" y="533" class="t"><tspan class="g">DONE</tspan> 6b2491d site scroll loop</text>
+<text x="817" y="555" class="t"><tspan class="t">FYI:</tspan> Lighthouse 98 / 100</text>
+<text x="817" y="577" class="t">next: the 375 shots</text>
+<text x="817" y="662" class="d">plan mode → yes → building…  <tspan class="g">█</tspan></text>
+</svg>

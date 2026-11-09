@@ -1,6 +1,15 @@
 # claude-seats
 
+[![stars](https://img.shields.io/github/stars/mattypark/claude-seats?style=flat&color=7ee787&label=stars)](https://github.com/mattypark/claude-seats/stargazers)
+[![license](https://img.shields.io/badge/license-MIT-79c0ff)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-2.1.80%2B-d2a8ff)](https://claude.com/claude-code)
+[![built for](https://img.shields.io/badge/built%20while%20making-nudgy.run-e3b341)](https://nudgy.run)
+
 Six Claude Code sessions in one terminal, talking to each other while they build your app. This is the exact setup I used to build [Nudgy](https://nudgy.run) in two weeks, written down so you get the same thing in three steps.
+
+<img src="docs/images/seats-grid.svg" alt="six Claude Code seats in a 3×2 tmux grid, each posting to one room" width="100%">
+
+If this saves you a week, **star the repo** so more people find it. Questions and your own setups go in [Discussions](https://github.com/mattypark/claude-seats/discussions); bugs in [Issues](https://github.com/mattypark/claude-seats/issues).
 
 ## Start here
 
@@ -48,7 +57,7 @@ Dictate for 5 to 10 minutes about the app (I use [Wispr Flow](https://wisprflow.
 ## What you get
 
 - **tmux, laid out 3×2.** One screen, six terminals. Mouse works, big scrollback, `⌥j` is the prefix (`⌃b` also works, for a phone keyboard over SSH).
-- **Six Claude Code seats that talk.** Each box runs Claude Code with the [claude-multiplayer](https://github.com/mattypark/claude-multiplayer) MCP server, so the seats can post to a room, read each other's posts, and hand work across. Seat 1 says "the API shape is X", seat 4 draws against it, nobody waits for you.
+- **Six Claude Code seats that talk.** Each box runs Claude Code with my [claude-multiplayer](https://github.com/mattypark/claude-multiplayer) MCP server (a room for Claude Code sessions, with a fix so no post is ever dropped), so the seats can post to a room, read each other's posts, and hand work across. Seat 1 says "the API shape is X", seat 4 draws against it, nobody waits for you.
 - **A prompt that turns your rambling into six prompts.** You talk for 5 to 10 minutes about the app (I use [Wispr Flow](https://wisprflow.ai)), paste the transcript under `prompts/00-yap-to-six.md`, and Claude writes six seat prompts: a lane each, which model fits each lane, the effort setting, and the loop that keeps them going.
 - **The loop.** Each seat tests its own work, reads the app's own log, writes a handoff and its own next prompt. You come back to a folder of copy-paste prompts, not a chat you have to scroll.
 - **Safe commits with six writers.** `scripts/private-commit.sh` commits a seat's files onto `main` through a private index and refuses when someone else changed the same file since. No merges, no stepping on each other.
@@ -70,6 +79,8 @@ In order, each step skipped when it's already there.
 You need a Claude plan that lets you run several sessions at once. I run the Max plan.
 
 ## The workflow, in more detail
+
+<img src="docs/images/loop.svg" alt="you talk → one prompt → six seats → the room → safe commits → next prompts, and round again" width="100%">
 
 ### 1. Start the seats
 
@@ -117,4 +128,8 @@ docs/loop.md             how the loop runs without you
 
 One Claude Code session doing everything forgets what it did an hour ago and writes the same bug twice. Six seats with one lane each keep their context small, and the room is where they agree on shapes. The cost is coordination, which is what the rules and the scripts carry so you don't have to.
 
-MIT. Built by [Matthew Park](https://github.com/mattypark) while building Nudgy.
+## Star it, fork it, show me yours
+
+If you run this, I want to see it: open a [Discussion](https://github.com/mattypark/claude-seats/discussions) with your `seats.conf` and what the six built. And if it helped, a ⭐ on the repo is how the next person finds it.
+
+MIT. Built by [Matthew Park](https://github.com/mattypark) ([@mattypark](https://x.com/mattypark)) while building [Nudgy](https://nudgy.run). The room server is my [claude-multiplayer](https://github.com/mattypark/claude-multiplayer).

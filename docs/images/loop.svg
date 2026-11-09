@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" font-family="-apple-system, Inter, Segoe UI, sans-serif">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8b8f98"/></marker><style>.h{fill:#e6e6e6;font-size:18px;font-weight:600}.s{fill:#8b8f98;font-size:13px}</style></defs>
+<rect width="1200" height="300" rx="18" fill="#0d1117"/>
+<rect x="20" y="70" width="168" height="150" rx="14" fill="#161b22" stroke="#30363d"/>
+<text x="104" y="114" text-anchor="middle" class="h">you talk</text>
+<text x="104" y="150" text-anchor="middle" class="s">5–10 min of dictation</text>
+<text x="104" y="170" text-anchor="middle" class="s">(Wispr Flow)</text>
+<line x1="194" y1="145" x2="212" y2="145" stroke="#8b8f98" stroke-width="2" marker-end="url(#a)"/>
+<rect x="218" y="70" width="168" height="150" rx="14" fill="#161b22" stroke="#30363d"/>
+<text x="302" y="114" text-anchor="middle" class="h">one prompt</text>
+<text x="302" y="150" text-anchor="middle" class="s">00-yap-to-six.md</text>
+<text x="302" y="170" text-anchor="middle" class="s">splits it into six</text>
+<line x1="392" y1="145" x2="411" y2="145" stroke="#8b8f98" stroke-width="2" marker-end="url(#a)"/>
+<rect x="417" y="70" width="168" height="150" rx="14" fill="#161b22" stroke="#30363d"/>
+<text x="501" y="114" text-anchor="middle" class="h">six seats</text>
+<text x="501" y="150" text-anchor="middle" class="s">a lane each</text>
+<text x="501" y="170" text-anchor="middle" class="s">plan mode → yes</text>
+<line x1="591" y1="145" x2="609" y2="145" stroke="#8b8f98" stroke-width="2" marker-end="url(#a)"/>
+<rect x="615" y="70" width="168" height="150" rx="14" fill="#161b22" stroke="#30363d"/>
+<text x="699" y="114" text-anchor="middle" class="h">the room</text>
+<text x="699" y="150" text-anchor="middle" class="s">CONTRACT · ASK</text>
+<text x="699" y="170" text-anchor="middle" class="s">DONE · FYI</text>
+<line x1="789" y1="145" x2="808" y2="145" stroke="#8b8f98" stroke-width="2" marker-end="url(#a)"/>
+<rect x="814" y="70" width="168" height="150" rx="14" fill="#161b22" stroke="#30363d"/>
+<text x="898" y="114" text-anchor="middle" class="h">safe commits</text>
+<text x="898" y="150" text-anchor="middle" class="s">private-commit.sh</text>
+<text x="898" y="170" text-anchor="middle" class="s">refuses a clash</text>
+<line x1="988" y1="145" x2="1006" y2="145" stroke="#8b8f98" stroke-width="2" marker-end="url(#a)"/>
+<rect x="1012" y="70" width="168" height="150" rx="14" fill="#161b22" stroke="#30363d"/>
+<text x="1096" y="114" text-anchor="middle" class="h">next prompts</text>
+<text x="1096" y="150" text-anchor="middle" class="s">handoff + prompt</text>
+<text x="1096" y="170" text-anchor="middle" class="s">per seat, ready to paste</text>
+<path d="M 1096 222 L 1096 262 L 501 262 L 501 228" fill="none" stroke="#7ee787" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#a)"/>
+<text x="600" y="285" text-anchor="middle" class="s" fill="#7ee787">the loop: paste the next prompts, go again</text>
+</svg>
