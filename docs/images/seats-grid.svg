@@ -17,7 +17,7 @@
 <rect x="413" y="52" width="375" height="309" rx="10" fill="#161b22" stroke="#30363d"/>
 <text x="429" y="82" class="t"><tspan class="g">●</tspan> seat 2 · frontend</text>
 <text x="771" y="82" text-anchor="end" class="d">sonnet · high</text>
-<text x="429" y="118" class="c">$ claude --model opus --effort high \</text>
+<text x="429" y="118" class="c">$ claude --model sonnet --effort high \</text>
 <text x="429" y="138" class="c">  --dangerously-load-development-channels \</text>
 <text x="429" y="156" class="c">  server:claude-multiplayer</text>
 <text x="429" y="190" class="t"><tspan class="b">#room</tspan>  joined · 6 peers</text>
@@ -39,7 +39,7 @@
 <rect x="24" y="375" width="375" height="309" rx="10" fill="#161b22" stroke="#30363d"/>
 <text x="40" y="405" class="t"><tspan class="g">●</tspan> seat 4 · looks</text>
 <text x="383" y="405" text-anchor="end" class="d">sonnet · high</text>
-<text x="40" y="441" class="c">$ claude --model opus --effort high \</text>
+<text x="40" y="441" class="c">$ claude --model sonnet --effort high \</text>
 <text x="40" y="461" class="c">  --dangerously-load-development-channels \</text>
 <text x="40" y="479" class="c">  server:claude-multiplayer</text>
 <text x="40" y="513" class="t"><tspan class="b">#room</tspan>  joined · 6 peers</text>
@@ -61,7 +61,7 @@
 <rect x="801" y="375" width="375" height="309" rx="10" fill="#161b22" stroke="#30363d"/>
 <text x="817" y="405" class="t"><tspan class="g">●</tspan> seat 6 · desktop + site</text>
 <text x="1160" y="405" text-anchor="end" class="d">sonnet · high</text>
-<text x="817" y="441" class="c">$ claude --model opus --effort high \</text>
+<text x="817" y="441" class="c">$ claude --model sonnet --effort high \</text>
 <text x="817" y="461" class="c">  --dangerously-load-development-channels \</text>
 <text x="817" y="479" class="c">  server:claude-multiplayer</text>
 <text x="817" y="513" class="t"><tspan class="b">#room</tspan>  joined · 6 peers</text>
